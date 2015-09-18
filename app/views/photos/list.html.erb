@@ -1,0 +1,22 @@
+<div class="well">
+  <div class="text-right">
+    <%= link_to 'New Photo', new_photo_path, class: 'btn btn-default' %>
+  </div>
+</div>
+
+<% @photos.each do |photo| %>
+
+  <div class="col-xs-6 col-sm-3">
+    <%= link_to photo_path(id: photo.id) do %>
+      <%= image_tag photo.url, class: "img-thumbnail" %>
+    <% end %>
+
+    <%= link_to like_photo_path(id: photo.id), method: :post, class: 'btn btn-default'  do %>
+      <i class="glyphicon glyphicon-thumbs-up"></i>
+      <%= pluralize photo.view_count, 'like' %>
+    <% end %>
+
+
+  </div>
+
+<% end %>
