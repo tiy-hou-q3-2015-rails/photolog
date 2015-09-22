@@ -46,3 +46,10 @@ group :development do
 end
 
 gem 'bootstrap-sass'
+
+gem "minitest-rails"
+
+group :test do
+    gem "minitest-rails-capybara"
+    gem "minitest-reporters"
+end
