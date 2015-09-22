@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/rails/capybara"
+require "support/has_image"
 
 Minitest::Reporters.use!(
   Minitest::Reporters::ProgressReporter.new,
