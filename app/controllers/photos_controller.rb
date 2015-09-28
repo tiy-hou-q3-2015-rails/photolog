@@ -1,6 +1,9 @@
 class PhotosController < ApplicationController
   def list
-    @photos = Photo.all.order("view_count desc")
+    @photos = Photo.all
+                   .order("view_count desc")
+                   .page(params[:page])
+                   .per(4)
   end
 
   def detail
@@ -18,7 +21,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new params.require(:photo).permit(:url)
+    @photo = Photo.new params.require(:photo).permit(:image)
     if @photo.save
       redirect_to photo_path(id: @photo.id)
     else

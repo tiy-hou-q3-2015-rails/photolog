@@ -53,3 +53,9 @@ group :test do
     gem "minitest-rails-capybara"
     gem "minitest-reporters"
 end
+
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem 'refile-postgres'
+gem "kaminari"
+gem 'kaminari-bootstrap', '~> 3.0.1'

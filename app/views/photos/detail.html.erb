@@ -1,4 +1,4 @@
 <h1><%= pluralize @photo.view_count, 'like' %></h1>
 
 
-<%= image_tag @photo.url, class: "img-responsive" %>
+<%= image_tag attachment_url(@photo, :image, :fit, 500, 500, format: "jpg") %>

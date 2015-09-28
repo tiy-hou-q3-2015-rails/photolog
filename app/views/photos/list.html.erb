@@ -4,12 +4,21 @@
   </div>
 </div>
 
+<div class="text-center">
+  <%= paginate @photos %>
+  <p>
+    <%= page_entries_info @photos %>
+  </p>
+</div>
+
+
+
 <% @photos.each do |photo| %>
 
-  <div class="col-xs-6 col-sm-3">
+  <div class="col-xs-6">
     <%= link_to photo_path(id: photo.id) do %>
-      <%= image_tag photo.url, class: "img-thumbnail" %>
-    <% end %>
+      <%= image_tag attachment_url(photo, :image, :fill, 400, 400, format: "jpg") %>
+      <% end %>
 
     <%= link_to like_photo_path(id: photo.id), method: :post, class: 'btn btn-default'  do %>
       <i class="glyphicon glyphicon-thumbs-up"></i>
